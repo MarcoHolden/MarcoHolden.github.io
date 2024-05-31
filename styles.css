@@ -1,0 +1,10 @@
+@keyframes jump {
+    0%, 100% { transform: translateY(0); }
+    50% { transform: translateY(-20px); }
+}
+.character {
+    display: inline-block;
+    margin-right: 5px;
+    animation: jump 0.6s ease;
+    animation-fill-mode: forwards; /* Change to 'forwards' to maintain the last keyframe post-animation if needed */
+}
