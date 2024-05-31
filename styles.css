@@ -8,3 +8,22 @@
     animation: jump 0.6s ease;
     animation-fill-mode: forwards; /* Change to 'forwards' to maintain the last keyframe post-animation if needed */
 }
+
+/* Initial state (not in animation) - full viewport coverage */
+#border-frame {
+    position: fixed;
+    top: 0; left: 0; right: 0; bottom: 0;
+    border: 5px solid black;
+    display: none; /* Start hidden and show it via JS */
+}
+
+@keyframes shrinkBorder {
+    from {
+        top: 0; left: 0; right: 0; bottom: 0;
+    }
+    to {
+        /* Dynamically set these in JavaScript */
+        top: var(--top); bottom: var(--bottom);
+        left: var(--left); right: var(--right);
+    }
+}
