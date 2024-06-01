@@ -11,7 +11,7 @@
             flex-direction: column;
             align-items: center;
             justify-content: center;
-            height: 100vh;
+            height: 60vh;
             margin: 0;
             font-family: Arial, sans-serif;
         }
@@ -28,17 +28,95 @@
         h1 {
             font-size: 4rem;
         }
+        #button-container {
+            display: flex;
+            justify-content: space-around;
+            width: 100%;
+            opacity: 1;
+            transition: opacity 1s ease;
+            flex-wrap: wrap;
+            margin-top: 0px;
+        }
+        .action-button {
+            padding: 2vw;
+            flex-grow: 1;
+            margin: 1%;
+            font-size: 2vw;
+            cursor: pointer;
+            background-color: #130202;
+            border: 1px solid #ffffff;
+            transition: background-color 0.3s;
+            text-align: center;
+            box-sizing: border-box;
+            min-width: 240px; 
+            min-height: 150px;
+            max-height: 200px;
+        }
+        .action-button:hover {
+            background-color: #e2e2e2;
+        }
+        #toggle-audio {
+            position: fixed;  /* Fixed position */
+            bottom: 20px;     /* Positioned at the bottom */
+            right: 20px;      /* Positioned on the right */
+            padding: 10px 20px;
+            font-size: 16px;
+            cursor: pointer;
+        }
+
     </style>
 </head>
 <body>
-    <nav>
-        <a href="index.html">Home</a>
-        <a href="about.html">About Me</a>
-        <a href="fun-projects.html">Fun Projects</a>
-        <!-- Add more links as needed -->
-    </nav>
-    <div id="border-frame" class="border-hidden"></div>
-    <h1 id="animated-text">Hello World</h1>
+    <video loop muted id="background-video" style="position: fixed; right: -1; bottom: 0; min-width: 100%; min-height: 100%; width: auto; height: auto; z-index: -100; background-size: cover;">
+        <source src="WaterBackgroundVideo.mp4" type="video/mp4">
+        Your browser does not support the video tag.
+    </video>
+    <script>
+        document.addEventListener("DOMContentLoaded", function() {
+            setTimeout(function() {
+                var backgroundVideo = document.getElementById("background-video");
+                backgroundVideo.play();  // Start playing the video after 10 seconds
+            }, 7000);  // Delay in milliseconds (10000ms = 10 seconds)
+        });
+    </script>  
+    <div id="content-container">
+        <div id="border-frame" class="border-hidden"></div>
+        <h1 id="animated-text">Hello World</h1>
+    </div>
+    <div id="button-container" style="display: none;">
+        <button class="action-button">Personal</button>
+        <button class="action-button">Fun Stuff</button>
+        <button class="action-button">Code</button>
+        <button class="action-button">More</button>
+    </div>
     <script src="animations.js"></script>
+    <button id="toggle-audio" onclick="toggleAudio()">🔊 Toggle Audio</button>
+
+    <audio id="my-audio" autoplay
+        src="Tomato Miso.mp3"></audio>
+
+    <script type="text/javascript">
+
+        var isAudioPlayed = false;
+
+
+
+        function toggleAudio() {
+            const myAudio = document.getElementById("my-audio");
+            if (myAudio.paused) {
+                myAudio.play();  // If the audio is paused, play it
+                document.getElementById("toggle-audio").textContent = '🔇 Mute'; // Change button text to Mute
+            } else {
+                myAudio.pause(); // If the audio is playing, pause it
+                document.getElementById("toggle-audio").textContent = '🔊 Play'; // Change button text to Play
+            }
+        }
+
+
+        document.body.onclick = ()=>{
+            if(isAudioPlayed) return ;
+            playAudio();
+        }       
+    </script>
 </body>
 </html>

@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Home Page</title>
+    <link rel="stylesheet" href="style.css">
+    <style>
+        body {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            height: 100vh;
+            margin: 0;
+            font-family: Arial, sans-serif;
+        }
+        nav {
+            position: absolute;
+            top: 10px;
+            right: 10px;
+        }
+        nav a {
+            margin: 0 10px;
+            text-decoration: none;
+            font-size: 1.2rem;
+        }
+        h1 {
+            font-size: 4rem;
+        }
+        #content-container {
+            transition: transform 1s ease;
+        }
+        #button-container {
+            display: flex;
+            justify-content: space-around;
+            width: 100%;
+            opacity: 0;
+            transition: opacity 1s ease;
+            margin-top: 20px;
+        }
+        .action-button {
+            padding: 10px 20px;
+            font-size: 16px;
+            cursor: pointer;
+            background-color: #f4f4f4;
+            border: 1px solid #ccc;
+            transition: background-color 0.3s;
+        }
+        .action-button:hover {
+            background-color: #e2e2e2;
+        }
+    </style>
+</head>
+<body>
+    <nav>
+        <a href="index.html">Home</a>
+        <a href="about.html">About Me</a>
+        <a href="fun-projects.html">Fun Projects</a>
+        <!-- Add more links as needed -->
+    </nav>
+    <div id="content-container">
+        <div id="border-frame" class="border-hidden"></div>
+        <h1 id="animated-text">Hello World</h1>
+    </div>
+    <div id="button-container">
+        <button class="action-button">Personal</button>
+        <button class="action-button">Fun Stuff</button>
+        <button class="action-button">Code</button>
+        <button class="action-button">More</button>
+    </div>
+    <script src="animation.js"></script>
+</body>
+</html>

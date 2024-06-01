@@ -27,3 +27,33 @@
         left: var(--left); right: var(--right);
     }
 }
+#button-container {
+    display: flex;
+    justify-content: space-around;
+    width: 80%; /* Adjust width as needed */
+    opacity: 1; /* Set opacity to fully visible */
+    transition: opacity 1s ease, transform 1s ease;
+    position: absolute; /* Ensure it can be positioned accurately */
+    top: 60%; /* Adjust this value based on the final position relative to the text */
+    transform: translateY(-50px); /* Adjust if needed */
+}
+
+.action-button {
+    padding: 20px 40px; /* Increase padding to make them look more like boxes */
+    font-size: 16px;
+    cursor: pointer;
+    border: none;
+    color: rgb(0, 0, 0); /* Text color */
+    box-shadow: 0 4px 6px rgba(0,0,0,0.1); /* Optional: adds shadow for better visibility */
+    transition: background-color 0.3s, transform 0.2s ease;
+}
+
+.action-button:hover {
+    transform: scale(1.05); /* Slight increase in size on hover */
+}
+
+/* Individual button colors */
+.action-button:nth-child(1) { background-color: #355070; } /* Blue */
+.action-button:nth-child(2) { background-color: #6d597a; } /* Red */
+.action-button:nth-child(3) { background-color: #b56576; } /* Green */
+.action-button:nth-child(4) { background-color: #eaac8b; } /* Yellow */
