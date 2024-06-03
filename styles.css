@@ -57,3 +57,13 @@
 .action-button:nth-child(2) { background-color: #6d597a; } /* Red */
 .action-button:nth-child(3) { background-color: #b56576; } /* Green */
 .action-button:nth-child(4) { background-color: #eaac8b; } /* Yellow */
+
+#creator-info {
+    position: absolute;
+    width: 100%;
+    text-align: center;
+    bottom: 440px; /* Adjust this value to move it higher or lower */
+    color: #000000; /* Assuming white text */
+    font-size: 20px; /* Optional, adjust as needed */
+    z-index: 10; /* Ensure it's visible above other elements if necessary */
+}

@@ -44,16 +44,16 @@
             font-size: 2vw;
             cursor: pointer;
             background-color: #130202;
-            border: 1px solid #ffffff;
+            border: 1px solid #000000;
             transition: background-color 0.3s;
             text-align: center;
             box-sizing: border-box;
             min-width: 240px; 
             min-height: 150px;
-            max-height: 200px;
+            max-height: 160px;
         }
         .action-button:hover {
-            background-color: #e2e2e2;
+            background-color: #e56b6f;
         }
         #toggle-audio {
             position: fixed;  /* Fixed position */
@@ -83,8 +83,11 @@
         <div id="border-frame" class="border-hidden"></div>
         <h1 id="animated-text">Hello World</h1>
     </div>
+    <div id="creator-info">
+        Created by: Mark Holden
+    </div>
     <div id="button-container" style="display: none;">
-        <button class="action-button">Personal</button>
+        <button class="action-button" onclick="window.location.href='personal.html';">Personal</button>
         <button class="action-button">Fun Stuff</button>
         <button class="action-button">Code</button>
         <button class="action-button">More</button>
