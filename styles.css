@@ -52,12 +52,13 @@
     transform: scale(1.05); /* Slight increase in size on hover */
 }
 
-/* Individual button colors */
-.action-button:nth-child(1) { background-color: #355070; } /* Blue */
-.action-button:nth-child(2) { background-color: #6d597a; } /* Red */
-.action-button:nth-child(3) { background-color: #b56576; } /* Green */
-.action-button:nth-child(4) { background-color: #eaac8b; } /* Yellow */
-
+/* 
+    Individual button colors 
+    .action-button:nth-child(1) { background-color: #355070; } 
+    .action-button:nth-child(2) { background-color: #6d597a; } 
+    .action-button:nth-child(3) { background-color: #b56576; } 
+    .action-button:nth-child(4) { background-color: #eaac8b; } 
+*/
 #creator-info {
     position: absolute;
     width: 100%;

@@ -1,0 +1,150 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Interactive Image Track</title>
+    <style>
+        body {
+            height: 100vh;
+            width: 100vw;
+            background-color: #BDD4BC;
+            margin: 0;
+            overflow: hidden;
+        }
+        nav {
+            width: 100%;
+            background-color: #BDD4BC;
+            position: fixed;
+            top: 0;
+            left: 0;
+            z-index: 10;
+            padding: 70px 0;  /* Adjusted padding */
+            display: flex;
+            justify-content: center;  /* Center the links horizontally */
+            align-items: center;  /* Center the links vertically */
+        }
+
+        nav a {
+            color: #f9fbf9;
+            text-decoration: none;
+            font-size: 2em;
+            margin: 0 12px;
+            font-family: Georgia, Helvetica, Arial, sans-serif;
+        }
+
+        #image-track > .image {
+            width: 40vmin;
+            height: 56vmin;
+            object-fit: cover;
+            object-position: 100% 50%;
+            user-select: none;
+        }
+
+        #image-track {
+            display: flex;
+            gap: 4vmin;
+            position: absolute;
+            top: 50%;
+            transform: translate(0%, -50%);
+            padding-left: calc(40vw - 20vmin); /* Start in the center */
+            user-select: none;
+        }
+
+        #toggle-audio {
+            position: fixed;  /* Fixed position */
+            bottom: 20px;     /* Positioned at the bottom */
+            left: 50%;        /* Center horizontally */
+            transform: translateX(-50%);  /* Center horizontally */
+            padding: 10px 20px;
+            font-size: 16px;
+            font-family: Georgia, Helvetica, Arial, sans-serif;
+            cursor: pointer;
+            color: #f9fbf9;
+            background-color: #BDD4BC;
+            border: 1px solid #BDD4BC;  /* Added border for better visibility */
+        }
+
+    </style>
+</head>
+<body>
+    <nav>
+        <a href="index.html">Home</a>
+        <a href="fun-projects.html">Code</a>
+    </nav>
+    <div id="image-track" data-mouse-down-at="0" data-prev-percentage="0">
+        <img class="image" src="photo1.jpg" draggable="false" alt="Photo 1"/>
+        <img class="image" src="photo2.jpg" draggable="false" alt="Photo 2"/>
+        <img class="image" src="photo3.jpg" draggable="false" alt="Photo 3"/>
+        <img class="image" src="photo4.jpg" draggable="false" alt="Photo 4"/>
+        <img class="image" src="photo5.jpg" draggable="false" alt="Photo 5"/>
+        <img class="image" src="photo6.jpg" draggable="false" alt="Photo 6"/>
+        <img class="image" src="photo7.jpg" draggable="false" alt="Photo 7"/>
+        <img class="image" src="photo8.jpg" draggable="false" alt="Photo 8"/>
+    </div>
+    <script>
+        const track = document.getElementById("image-track");
+        
+        window.onmousedown = e => {
+            track.dataset.mouseDownAt = e.clientX;
+        }
+
+        window.onmousemove = e => {
+            if (track.dataset.mouseDownAt === "0") return;
+
+            const mouseDelta = parseFloat(track.dataset.mouseDownAt) - e.clientX,
+                maxDelta = window.innerWidth / 2;
+
+            const percentage = (mouseDelta / maxDelta) * -100,
+                  prevPercentage = parseFloat(track.dataset.prevPercentage),
+                  nextPercentage = Math.max(Math.min(prevPercentage + percentage, 0), -70);
+
+            track.style.transform = `translate(${nextPercentage}%, -50%)`;
+
+            for(const image of track.getElementsByClassName("image")) {
+                image.style.objectPosition = `${100 + nextPercentage}% center`;
+            }
+        }
+
+        window.onmouseup = () => {
+            track.dataset.mouseDownAt = "0";
+            track.dataset.prevPercentage = track.style.transform.match(/-?\d+\.?\d*/)[0];
+        }
+
+        window.onresize = () => {
+            track.style.paddingLeft = `calc(50vw - 20vmin)`; // Adjust padding to keep images centered
+            track.dataset.prevPercentage = 0;
+            track.style.transform = `translate(0%, -50%)`;
+        }
+    </script>
+    <button id="toggle-audio" onclick="toggleAudio()">Toggle Audio</button>
+
+    <audio id="my-audio" autoplay
+    src="Tomato Miso.mp3"></audio>
+
+    <script type="text/javascript">
+
+    var isAudioPlayed = false;
+
+
+
+    function toggleAudio() {
+        const myAudio = document.getElementById("my-audio");
+        if (myAudio.paused) {
+            myAudio.play();  // If the audio is paused, play it
+            document.getElementById("toggle-audio").textContent = 'Mute'; // Change button text to Mute
+        } else {
+            myAudio.pause(); // If the audio is playing, pause it
+            document.getElementById("toggle-audio").textContent = 'Play'; // Change button text to Play
+        }
+    }
+
+
+    document.body.onclick = ()=>{
+        if(isAudioPlayed) return ;
+        playAudio();
+    }       
+    </script>
+
+</body>
+</html>
