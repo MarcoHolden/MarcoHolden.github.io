@@ -1,26 +1,60 @@
-const circle = document.getElementById('circle');
-const buttons = document.getElementsByClassName('button');
-const radius = Math.min(window.innerWidth, window.innerHeight) / 4; // Radius is one-quarter of the screen size
-const center = [window.innerWidth/2, window.innerHeight/2]
-const totalButtons = buttons.length;
-const angleIncrement = (2 * Math.PI) / totalButtons;
-let angle = -Math.PI / 2;
-let rotationAngle = 0;
+const letters = "ABCDEFGHIJKLMNOPQRSTUVWXYZ";
+const letters2 = "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz";
 
-function rotateButtons() {
-    rotationAngle += 1; // Adjust the rotation speed as needed
-    circle.style.transform = `rotate(${rotationAngle}deg)`;
-}
+document.querySelector("h1").addEventListener("mouseover", function(event) {
+    let iterations = 0;
 
-setInterval(rotateButtons, 50); // Adjust the interval as needed
+    // Disable further hover events during animation
+    this.style.pointerEvents = "none";
 
-function moveButtons() {    
-    for (let i = 0; i < totalButtons; i++) {
-        const x = Math.round(radius * Math.cos(angle));
-        const y = Math.round(radius * Math.sin(angle));
-        buttons[i].style.transform = `translate(${x}px, ${y}px)`;
-        angle += angleIncrement;
-    }
-}
-console.log(buttons.length);
-moveButtons();
+    const interval = setInterval(() => {
+        event.target.innerText = event.target.dataset.value
+            .split("")
+            .map((letter, index) => {
+                if (index < iterations) {
+                    return event.target.dataset.value[index];
+                } else {
+                    return letters[Math.floor(Math.random() * 26)];
+                }
+            })
+            .join("");
+
+        iterations += 1/3;
+
+        // Check if animation is complete
+        if (iterations >= event.target.dataset.value.length) {
+            clearInterval(interval);
+            // Re-enable hover events after animation completes
+            this.style.pointerEvents = "auto";
+        }
+    }, 40);
+});
+
+document.querySelector("h2").addEventListener("mouseover", function(event) {
+    let iterations = 0;
+
+    // Disable further hover events during animation
+    this.style.pointerEvents = "none";
+
+    const interval = setInterval(() => {
+        event.target.innerText = event.target.dataset.value
+            .split("")
+            .map((letter, index) => {
+                if (index < iterations) {
+                    return event.target.dataset.value[index];
+                } else {
+                    return letters2[Math.floor(Math.random() * 26)];
+                }
+            })
+            .join("");
+
+        iterations += 1/3;
+
+        // Check if animation is complete
+        if (iterations >= event.target.dataset.value.length) {
+            clearInterval(interval);
+            // Re-enable hover events after animation completes
+            this.style.pointerEvents = "auto";
+        }
+    }, 30);
+});
