@@ -1,0 +1,109 @@
+body {
+    height: 100vh;
+    width: 100vw;
+    background-color: #BDD4BC;
+    margin: 0;
+    overflow: hidden;
+    position: relative;
+}
+nav {
+    width: 100%;
+    background-color: #BDD4BC;
+    position: fixed;
+    top: 0;
+    left: 0;
+    z-index: 10;
+    padding: 70px 0;  /* Adjusted padding */
+    display: flex;
+    justify-content: center;  /* Center the links horizontally */
+    align-items: center;  /* Center the links vertically */
+}
+
+nav a {
+    color: #f9fbf9;
+    text-decoration: none;
+    font-size: 2em;
+    margin: 0 12px;
+    font-family: Georgia, Helvetica, Arial, sans-serif;
+}
+
+#image-track {
+    display: flex;
+    gap: 4vmin;
+    position: absolute;
+    top: 50%;
+    transform: translate(0%, -50%);
+    padding-left: calc(40vw - 20vmin); /* Start in the center */
+    user-select: none;
+    transition: transform 0.5s ease;
+}
+
+#image-track > .image {
+    width: 40vmin;
+    height: 56vmin;
+    object-fit: cover;
+    object-position: 100% 50%;
+    user-select: none;
+    cursor: pointer;
+}
+
+#toggle-audio {
+    position: fixed;  /* Fixed position */
+    bottom: 20px;     /* Positioned at the bottom */
+    left: 50%;        /* Center horizontally */
+    transform: translateX(-50%);  /* Center horizontally */
+    padding: 10px 20px;
+    font-size: 16px;
+    font-family: Georgia, Helvetica, Arial, sans-serif;
+    cursor: pointer;
+    color: #f9fbf9;
+    background-color: #BDD4BC;
+    border: 1px solid #BDD4BC;  /* Added border for better visibility */
+}
+
+#review-container {
+    display: none;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.8);
+    color: white;
+    z-index: 20;
+    justify-content: center;
+    align-items: center;
+    padding: 20px;
+    box-sizing: border-box;
+}
+
+#review {
+    display: flex;
+    width: 100%;
+    height: 100%;
+    cursor: pointer;
+    align-items: center;
+    justify-content: space-between;
+}
+
+#review-text {
+    width: 50%;
+    padding: 20px;
+    box-sizing: border-box;
+    overflow-y: auto;
+}
+
+#review-image {
+    width: 50%;
+    height: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+#review-image img {
+    max-width: 100%;
+    max-height: 100%;
+    border-radius: 8px;
+    border: 2px solid white;
+}
