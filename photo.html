@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Interactive Image Track</title>
+    <link rel="stylesheet" href="reviews.css">
+</head>
+<body>
+    <nav>
+        <a href="personal.html">Back</a>
+        <a href="fun-projects.html">Code</a>
+    </nav>
+    <div id="image-track" data-mouse-down-at="0" data-prev-percentage="0">
+        <img class="image" src="photo1.jpg" draggable="false" alt="Photo 1"/>
+        <img class="image" src="photo2.jpg" draggable="false" alt="Photo 2"/>
+        <img class="image" src="photo3.jpg" draggable="false" alt="Photo 3"/>
+        <img class="image" src="photo4.jpg" draggable="false" alt="Photo 4"/>
+        <img class="image" src="photo5.jpg" draggable="false" alt="Photo 5"/>
+        <img class="image" src="photo6.jpg" draggable="false" alt="Photo 6"/>
+        <img class="image" src="photo7.jpg" draggable="false" alt="Photo 7"/>
+        <img class="image" src="photo8.jpg" draggable="false" alt="Photo 8"/>
+    </div>
+    <div id="review-container">
+        <div id="review" onclick="closeReview()">
+            <div id="review-text"></div>
+            <div id="review-image">
+                <img src="" alt="Review Image">
+            </div>
+        </div>
+    </div>
+    <button id="toggle-audio" onclick="toggleAudio()">Toggle Audio</button>
+
+    <audio id="my-audio" autoplay src="Tomato Miso.mp3"></audio>
+
+    <script src="reviews.js"></script>
+</body>
+</html>

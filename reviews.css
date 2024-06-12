@@ -1,14 +1,14 @@
 body {
     height: 100vh;
-    width: 100vw;
-    background-color: #BDD4BC;
+    width: 150vw;
+    background-image: url('blackstarnight.jpg'); 
     margin: 0;
     overflow: hidden;
     position: relative;
 }
 nav {
     width: 100%;
-    background-color: #BDD4BC;
+    background-image: url('blackstarnight.jpg'); 
     position: fixed;
     top: 0;
     left: 0;
@@ -20,6 +20,7 @@ nav {
 }
 
 nav a {
+    background-image: url('blackstarnight.jpg'); 
     color: #f9fbf9;
     text-decoration: none;
     font-size: 2em;
@@ -58,7 +59,8 @@ nav a {
     cursor: pointer;
     color: #f9fbf9;
     background-color: #BDD4BC;
-    border: 1px solid #BDD4BC;  /* Added border for better visibility */
+    background-image: url('blackstarnight.jpg'); 
+    border: 1px solid #000000;  /* Added border for better visibility */
 }
 
 #review-container {
