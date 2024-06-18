@@ -4,6 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Fun Projects</title>
+    <link rel="stylesheet" href="fun-projects.css">
     <style>
         body {
             display: flex;
@@ -31,12 +32,24 @@
 </head>
 <body>
     <nav>
-        <a href="index.html">Home</a>
-        <a href="personal.html">About Me</a>
-        <a href="fun-projects.html">Fun Projects</a>
+        <a href="indexs.html">Home</a>
+        <a href="personal.html">Personal</a>
+        <a href="fun-projects.html">Game</a>
         <!-- Add more links as needed -->
     </nav>
-    <h1>Fun Projects</h1>
-    <p>This is the fun projects page.</p>
+    <div id="game-container">
+        <div id="player"></div>
+        <div class="platform" style="top: 300px; left: 100px;"></div>
+        <div class="platform" style="top: 200px; left: 200px;"></div>
+        <div class="platform" style="top: 100px; left: 300px;"></div>
+    </div>
+    <div class="instructions">
+        <h2>Instructions</h2>
+        <p>Press S to start and R to restart</p>
+        <p>Use arrow keys to move left and right.</p>
+        <p>Press Spacebar to jump.</p>
+        <p>Jump on falling platforms and reach the top to win!</p>
+    </div>
+    <script src="fun-projects.js"></script>
 </body>
 </html>

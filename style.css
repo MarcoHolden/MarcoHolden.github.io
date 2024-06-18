@@ -1,0 +1,129 @@
+body {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    height: 60vh;
+    margin: 0;
+    font-family: Arial, sans-serif;
+}
+
+nav {
+    position: absolute;
+    top: 10px;
+    right: 10px;
+}
+
+nav a {
+    margin: 0 10px;
+    text-decoration: none;
+    font-size: 1.2rem;
+}
+
+h1 {
+    font-size: 4rem;
+}
+
+#button-container {
+    display: flex;
+    justify-content: space-around;
+    width: 100%;
+    opacity: 1;
+    transition: opacity 1s ease;
+    flex-wrap: wrap;
+    margin-top: 0px;
+}
+
+.action-button {
+    padding: 2vw;
+    flex-grow: 1;
+    margin: 1%;
+    font-size: 2vw;
+    cursor: pointer;
+    background-color: #e56b6f7a;
+    border: 4px solid #000000;
+    transition: background-color 0.3s;
+    text-align: center;
+    font-weight: bold;
+    box-sizing: border-box;
+    min-width: 240px; 
+    min-height: 150px;
+    max-height: 160px;
+}
+
+.action-button:hover {
+    background-color: #e56b6f;
+}
+
+#toggle-audio {
+    position: fixed;  /* Fixed position */
+    bottom: 20px;     /* Positioned at the bottom */
+    right: 20px;      /* Positioned on the right */
+    padding: 10px 20px;
+    font-size: 16px;
+    cursor: pointer;
+}
+
+@keyframes jump {
+    0%, 100% { transform: translateY(0); }
+    50% { transform: translateY(-20px); }
+}
+.character {
+    display: inline-block;
+    margin-right: 5px;
+    animation: jump 0.6s ease;
+    animation-fill-mode: forwards; /* Change to 'forwards' to maintain the last keyframe post-animation if needed */
+}
+
+/* Initial state (not in animation) - full viewport coverage */
+#border-frame {
+    position: fixed;
+    top: 0; left: 0; right: 0; bottom: 0;
+    border: 5px solid black;
+    display: none; /* Start hidden and show it via JS */
+}
+
+@keyframes shrinkBorder {
+    from {
+        top: 0; left: 0; right: 0; bottom: 0;
+    }
+    to {
+        /* Dynamically set these in JavaScript */
+        top: var(--top); bottom: var(--bottom);
+        left: var(--left); right: var(--right);
+    }
+}
+#button-container {
+    display: flex;
+    justify-content: space-around;
+    width: 80%; /* Adjust width as needed */
+    opacity: 1; /* Set opacity to fully visible */
+    transition: opacity 1s ease, transform 1s ease;
+    position: absolute; /* Ensure it can be positioned accurately */
+    top: 60%; /* Adjust this value based on the final position relative to the text */
+    transform: translateY(-50px); /* Adjust if needed */
+}
+
+.action-button {
+    padding: 20px 40px; /* Increase padding to make them look more like boxes */
+    font-size: 16px;
+    cursor: pointer;
+    border: none;
+    color: rgb(0, 0, 0); /* Text color */
+    box-shadow: 0 4px 6px rgba(0,0,0,0.1); /* Optional: adds shadow for better visibility */
+    transition: background-color 0.3s, transform 0.2s ease;
+}
+
+.action-button:hover {
+    transform: scale(1.05); /* Slight increase in size on hover */
+}
+
+#creator-info {
+    position: absolute;
+    width: 100%;
+    text-align: center;
+    bottom: 440px; /* Adjust this value to move it higher or lower */
+    color: #000000; /* Assuming white text */
+    font-size: 20px; /* Optional, adjust as needed */
+    z-index: 10; /* Ensure it's visible above other elements if necessary */
+}
